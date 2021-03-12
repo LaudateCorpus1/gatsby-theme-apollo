@@ -202,7 +202,7 @@ export default function PageLayout(props) {
           title={siteName}
           logoLink={logoLink}
         >
-          <HeaderInner>
+          {/* <HeaderInner>
             {hasNavItems ? (
               <ButtonWrapper ref={buttonRef}>
                 <StyledButton
@@ -239,7 +239,7 @@ export default function PageLayout(props) {
                 )}
               />
             )}
-          </HeaderInner>
+          </HeaderInner> */}
           {sidebarContents && (
             <SidebarNav
               contents={sidebarContents}

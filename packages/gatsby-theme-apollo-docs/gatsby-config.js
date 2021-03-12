@@ -103,7 +103,11 @@ module.exports = ({
     {
       resolve: 'gatsby-remark-prismjs',
       options: {
-        showLineNumbers: true
+        showLineNumbers: true,
+        aliases: { 
+          sh: "bash",
+          gql: "graphql"
+        }
       }
     },
     'gatsby-remark-rewrite-relative-links',
@@ -137,7 +141,8 @@ module.exports = ({
         remarkPlugins: [
           [remarkTypescript, {wrapperComponent: 'MultiCodeBlock'}],
           ...remarkPlugins
-        ]
+        ],
+        extensions: [`.mdx`, `.md`]
       }
     },
     ...Object.entries(versions).map(([name, branch]) => ({
