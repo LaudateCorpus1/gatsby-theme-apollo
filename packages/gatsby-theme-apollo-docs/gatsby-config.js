@@ -21,6 +21,10 @@ module.exports = ({
 }) => {
   const allGatsbyRemarkPlugins = [
     {
+      // doesn't work when placed last in plugin order
+      resolve: require.resolve('./plugins/gatsby-remark-rewrite-urls'),
+    },
+    {
       resolve: 'gatsby-remark-autolink-headers',
       options: {
         offsetY: HEADER_HEIGHT
@@ -102,6 +106,7 @@ module.exports = ({
     'gatsby-remark-code-titles',
     {
       resolve: 'gatsby-remark-prismjs',
+      // https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-prismjs#how-to-use
       options: {
         showLineNumbers: true,
         aliases: { 
@@ -115,6 +120,14 @@ module.exports = ({
       resolve: 'gatsby-remark-check-links',
       options: checkLinksOptions
     },
+
+    // {
+    //   resolve: 'gatsby-remark-link-rewrite',
+    //   options: {
+    //     pattern: /\.md/,
+    //     replace: '',
+    //   },
+    // },
     ...gatsbyRemarkPlugins
   ];
 

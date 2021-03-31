@@ -41,8 +41,8 @@ export default function HeaderButton() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Launch Apollo Studio
-        <StyledIcon weight="thin" />
+        Sign in
+        {/* <StyledIcon /> */}
       </StyledLink>
     </Container>
   );

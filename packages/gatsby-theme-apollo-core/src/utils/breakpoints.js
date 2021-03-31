@@ -1,6 +1,6 @@
 const sizes = {
   sm: 600,
-  md: 850,
+  md: 882, // leave room for Hotkey in search box
   lg: 1120
 };
 

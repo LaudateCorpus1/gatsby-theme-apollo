@@ -6,6 +6,8 @@ import {size} from 'polished';
 
 const padding = 20;
 const StyledButton = styled.button({
+  display: 'flex',
+  alignItems: 'center',
   padding,
   marginLeft: -padding,
   color: 'inherit',
@@ -24,6 +26,7 @@ export default function MenuButton(props) {
   return (
     <StyledButton onClick={props.onClick}>
       <StyledIcon />
+      {props.children}
     </StyledButton>
   );
 }

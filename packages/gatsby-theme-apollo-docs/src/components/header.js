@@ -16,7 +16,7 @@ const InnerWrapper = styled.div({
   alignItems: 'center',
   height: HEADER_HEIGHT,
   padding: '0 56px',
-  backgroundColor: 'white',
+  background: 'rgba(252,252,252,0.97)',
   [breakpoints.md]: {
     padding: '0 24px'
   }

@@ -1,3 +1,4 @@
+import {Paywall} from './paywall';
 import CodeBlock from './code-block';
 import CustomSEO from './custom-seo';
 import Footer from './footer';
@@ -177,8 +178,10 @@ export default function Template(props) {
         twitterHandle={twitterHandle}
       />
       <StyledContentWrapper>
-        <PageHeader {...frontmatter} />
-        <hr />
+        <Paywall pathname={pathname} header>
+          <PageHeader {...frontmatter} />
+          <hr />
+        </Paywall>
         <PageContent
           title={frontmatter.title}
           apiReference={fields.apiReference}

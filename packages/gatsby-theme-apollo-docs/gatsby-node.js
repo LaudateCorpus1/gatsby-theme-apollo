@@ -317,6 +317,7 @@ exports.createPages = async (
     if (defaultVersionNumber) {
       try {
         const versionNumber = parseFloat(fields.version, 10);
+        // console.log('XX', defaultVersionNumber, versionNumber, fields)
         versionDifference = versionNumber - defaultVersionNumber;
       } catch (error) {
         // do nothing
@@ -335,7 +336,7 @@ exports.createPages = async (
           owner,
           repo,
           'tree',
-          fields.versionRef || path.join(currentBranch, contentPath),
+          fields.versionRef || path.join(currentBranch, contentPath.replace('book/', '')),
           relativePath
         );
 

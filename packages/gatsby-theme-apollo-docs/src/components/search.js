@@ -23,9 +23,12 @@ const Hotkey = styled.div(verticalAlign, size(24), {
   color: colors.text4,
   borderRadius,
   textAlign: 'center',
-  lineHeight: 1.125,
+  lineHeight: '23px',
   right: 10,
-  pointerEvents: 'none'
+  pointerEvents: 'none',
+  [breakpoints.sm]: {
+    display: 'none'
+  },
 });
 
 const boxShadowColor = transparentize(0.9, 'black');
@@ -33,6 +36,7 @@ export const boxShadow = `${boxShadowColor} 0 2px 12px`;
 const Container = styled.div({
   flexGrow: 1,
   marginRight: 40,
+  paddingBottom: 8,
   color: colors.text2,
   position: 'relative',
   zIndex: 1,

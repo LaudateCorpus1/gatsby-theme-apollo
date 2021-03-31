@@ -1,3 +1,4 @@
+import {Paywall} from './paywall';
 import PropTypes from 'prop-types';
 import React, {useRef, useState} from 'react';
 import SectionNav from './section-nav';
@@ -6,10 +7,11 @@ import styled from '@emotion/styled';
 import useMount from 'react-use/lib/useMount';
 import {HEADER_HEIGHT} from '../utils';
 import {IconGithub} from '@apollo/space-kit/icons/IconGithub';
-import {IconStar} from '@apollo/space-kit/icons/IconStar';
 import {PageNav, breakpoints, colors} from 'gatsby-theme-apollo-core';
 import {ReactComponent as SpectrumLogo} from '../assets/spectrum.svg';
+import {ReactComponent as IconEmoji} from '../assets/happy.svg';
 import {withPrefix} from 'gatsby';
+import {FurtherAsides} from './further-asides'
 
 const Wrapper = styled.div({
   display: 'flex',
@@ -17,6 +19,7 @@ const Wrapper = styled.div({
 });
 
 const InnerWrapper = styled.div({
+  position: 'relative',
   flexGrow: 1,
   width: 0,
   '.api-ref': {
@@ -69,6 +72,12 @@ const BodyContent = styled.div({
   },
   '.mermaid svg': {
     maxWidth: '100%'
+  },
+  'ul, ol, ul ul, ol ul, ol ol, ul ol': { 
+    marginLeft: 24
+  },
+  ul: {
+    marginBottom: 24
   }
 });
 
@@ -104,24 +113,31 @@ const AsideLinkWrapper = styled.h5({
   ':not(:last-child)': {
     marginBottom: 16
   }
+  
 });
 
-const AsideLinkInner = styled.a({
+const AsideLinkInner = styled.a(({emoji}) => ({
   display: 'flex',
   alignItems: 'center',
+  marginBottom: emoji ? -4 : 0,
   color: colors.text2,
   textDecoration: 'none',
   cursor: 'pointer',
-  ':hover': {
+  ':hover, :active, :focus': {
     color: colors.text3
   },
   svg: {
-    width: 20,
-    height: 20,
-    marginRight: 6,
-    fill: 'currentColor'
+    width: emoji ? 29.5 : 20,
+    height: emoji ? 29.5 : 20,
+    marginRight: emoji ? 1.5 : 6,
+    marginLeft: emoji && -4.5,
+    marginBottom: 3,
+    stroke: 'currentColor',
+    '*': {
+      stroke: 'currentColor'
+    }
   }
-});
+}));
 
 function AsideLink(props) {
   return (
@@ -146,8 +162,8 @@ function FeedbackLink(props) {
 
   return (
     <AsideLinkWrapper>
-      <AsideLinkInner onClick={handleClick}>
-        <IconStar style={{marginTop: -2}} /> Rate article
+      <AsideLinkInner emoji onClick={handleClick}>
+        <IconEmoji /> Send feedback
       </AsideLinkInner>
     </AsideLinkWrapper>
   );
@@ -226,15 +242,17 @@ export default function PageContent(props) {
   return (
     <Wrapper>
       <InnerWrapper>
-        <BodyContent
-          ref={contentRef}
-          className={cn('content-wrapper', {
-            'api-ref': props.apiReference
-          })}
-        >
-          {props.children}
-        </BodyContent>
-        <EditLink>{editLink}</EditLink>
+        <Paywall pathname={props.pathname}>
+          <BodyContent
+            ref={contentRef}
+            className={cn('content-wrapper', {
+              'api-ref': props.apiReference
+            })}
+          >
+            {props.children}
+          </BodyContent>
+          <EditLink>{editLink}</EditLink>
+        </Paywall>
         <PageNav
           prevPage={props.pages[pageIndex - 1]}
           nextPage={props.pages[pageIndex + 1]}
@@ -256,6 +274,7 @@ export default function PageContent(props) {
             <SpectrumLogo /> Discuss on Spectrum
           </AsideLink>
         )}
+        <FurtherAsides />
       </Aside>
     </Wrapper>
   );

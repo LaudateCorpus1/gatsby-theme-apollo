@@ -25,9 +25,12 @@ import {Link, graphql, navigate, useStaticQuery} from 'gatsby';
 import {MobileLogo} from './mobile-logo';
 import {Select} from './select';
 import {SelectedLanguageContext} from './multi-code-block';
-import {getSpectrumUrl, getVersionBasePath, trackCustomEvent} from '../utils';
+import {getSpectrumUrl, getVersionBasePath} from '../utils';
 import {groupBy} from 'lodash';
 import {size} from 'polished';
+import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
+
+import {AboveNav} from './above-nav'
 
 const Main = styled.main({
   flexGrow: 1
@@ -53,7 +56,7 @@ const MobileNav = styled.div({
   [breakpoints.md]: {
     display: 'flex',
     alignItems: 'center',
-    marginRight: 32,
+    marginRight: 12,
     color: colors.text1
   }
 });
@@ -240,6 +243,7 @@ export default function PageLayout(props) {
               />
             )}
           </HeaderInner> */}
+          <AboveNav />
           {sidebarContents && (
             <SidebarNav
               contents={sidebarContents}
@@ -253,20 +257,22 @@ export default function PageLayout(props) {
         <Main>
           <Header
             beforeContent={
+              typeof versionDifference === 'number' &&
               versionDifference !== 0 && (
                 <Eyebrow>
-                  You&apos;re viewing documentation for a{' '}
+                  You&apos;re viewing a{' '}
                   {versionDifference > 0
-                    ? 'version of this software that is in development'
-                    : 'previous version of this software'}
+                    ? 'version of this book that is in development'
+                    : 'previous version of this book'}
                   . <Link to="/">Switch to the latest stable version</Link>
                 </Eyebrow>
               )
             }
           >
             <MobileNav>
-              <MenuButton onClick={openSidebar} />
-              <MobileLogo width={32} fill="currentColor" />
+              <MenuButton onClick={openSidebar}>
+                <MobileLogo width={32} fill="currentColor" />
+              </MenuButton>
             </MobileNav>
             {algoliaApiKey && algoliaIndexName && (
               <Search

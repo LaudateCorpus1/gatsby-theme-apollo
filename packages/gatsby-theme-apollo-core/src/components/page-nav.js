@@ -45,7 +45,7 @@ const LinkHeading = styled.div(smallCaps, {
 });
 
 const LinkTitle = styled.div({
-  color: colors.text1
+  // color: colors.text1
 });
 
 export default function PageNav(props) {

@@ -88,6 +88,17 @@ const CategoryLink = styled(Link)(categoryTitleStyles, {
   }
 });
 
+const Section = styled.div({
+  padding: '12px 0',
+  color: colors.text1,
+  // color: colors.primary,
+  letterSpacing: '0.03em',
+  textAlign: 'center',
+  // fontWeight: 'bold',
+  fontSize: 20,
+  lineHeight: '15px',
+})
+
 const StyledCheckbox = styled.input({
   ...size('100%'),
   cursor: 'pointer',
@@ -160,6 +171,7 @@ NavItems.propTypes = {
 };
 
 export default function SidebarNav(props) {
+  // console.log('contents', props.contents)
   const categoriesRef = useRef();
 
   const [allExpanded, setAllExpanded] = useState(false);
@@ -211,6 +223,11 @@ export default function SidebarNav(props) {
       )}
       <div ref={categoriesRef}>
         {categories.map((category, index) => {
+          const isSection = !category.pages.length
+          if (isSection) {
+            return <Section key={index}>{category.title}</Section>
+          }
+
           const isSelected = category.pages.some(page =>
             isPageSelected(page.path, props.pathname)
           );

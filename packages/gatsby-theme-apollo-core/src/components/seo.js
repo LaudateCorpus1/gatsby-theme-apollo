@@ -30,5 +30,5 @@ SEO.propTypes = {
 
 SEO.defaultProps = {
   twitterCard: 'summary',
-  favicon: 'https://apollographql.com/favicon.ico'
+  favicon: 'https://graphql.guide/favicon.ico'
 };
