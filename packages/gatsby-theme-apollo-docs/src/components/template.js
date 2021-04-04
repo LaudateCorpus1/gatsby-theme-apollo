@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import React, {Fragment, createContext, useContext} from 'react';
 import rehypeReact from 'rehype-react';
 import styled from '@emotion/styled';
-import {ContentWrapper, colors, smallCaps} from 'gatsby-theme-apollo-core';
+import {ContentWrapper, isSubsection as testIfSubsection, colors, smallCaps} from 'gatsby-theme-apollo-core';
 import {HEADER_HEIGHT} from '../utils';
 import {MDXProvider} from '@mdx-js/react';
 import {graphql, navigate} from 'gatsby';
@@ -168,6 +168,10 @@ export default function Template(props) {
     .reduce((acc, {pages}) => acc.concat(pages), [])
     .filter(page => !page.anchor);
 
+  const isSubsection = testIfSubsection(pathname)
+  const headingDepths = isSubsection ? [3,4] : [2,3]
+  // (fields.apiReference ? 4 : 3)
+
   return (
     <Fragment>
       <CustomSEO
@@ -188,10 +192,9 @@ export default function Template(props) {
           pathname={pathname}
           pages={pages}
           headings={headings.filter(
-            heading =>
-              heading.depth === 2 ||
-              heading.depth === (fields.apiReference ? 4 : 3)
+            heading => headingDepths.includes(heading.depth)
           )}
+          isSubsection={isSubsection}
           hash={hash}
           githubUrl={githubUrl}
           spectrumUrl={spectrumUrl}

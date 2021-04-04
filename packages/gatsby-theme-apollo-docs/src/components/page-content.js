@@ -39,10 +39,11 @@ const BodyContent = styled.div({
   // style all anchors with an href and no prior classes
   // this helps avoid anchors with names and styled buttons
   'a[href]:not([class])': {
-    color: colors.primary,
+    color: 'var(--purple600)',
     textDecoration: 'none',
     ':hover': {
-      textDecoration: 'underline'
+      textDecoration: 'underline',
+      color: 'var(--purple300)'
     },
     code: {
       color: 'inherit'
@@ -263,6 +264,7 @@ export default function PageContent(props) {
         {props.headings.length > 0 && (
           <SectionNav
             headings={props.headings}
+            isSubsection={props.isSubsection}
             contentRef={contentRef}
             imagesLoaded={imagesLoaded === imagesToLoad}
           />

@@ -86,11 +86,12 @@ export default function SectionNav(props) {
       {props.headings.map(({depth, value}) => {
         const text = striptags(value);
         const slug = slugger.slug(text);
+        const unindentedDepth = props.isSubsection ? 3 : 2
         return (
           <StyledListItem
             key={slug}
             className={cn({active: slug === activeHeading})}
-            style={{paddingLeft: depth !== 2 && 16}}
+            style={{paddingLeft: depth !== unindentedDepth && 16}}
           >
             <a href={`#${slug}`} onClick={handleHeadingClick}>
               {text}

@@ -8,7 +8,10 @@ const visit = require('unist-util-visit')
 
 module.exports = ({ markdownAST }) => {
   visit(markdownAST, 'link', (node) => {
-    node.url = node.url.replace(/\.md/, '').replace('../', '../../');
+    node.url = node.url.replace('index.md', '').replace(/\.md/, '')
+
+    // taken care of by gatsby-remark-rewrite-relative-links
+    // .replace('../', '../../');
   })
   
   // doesn't work—url change happens after img processing

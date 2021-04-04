@@ -108,6 +108,22 @@ function handleToggleCategory(label, expanded) {
   });
 }
 
+function getChapter(pathname, sidebarContents) {
+  if (!sidebarContents) {
+    return null
+  }
+  
+  for (const chapter of sidebarContents) {
+    if (chapter.title) {
+      for (const page of chapter.pages) {
+        if (page.path === pathname) {
+          return chapter.title
+        }
+      }
+    }
+  }
+}
+
 export const NavItemsContext = createContext();
 
 export default function PageLayout(props) {
@@ -181,11 +197,12 @@ export default function PageLayout(props) {
   const sidebarTitle = (
     <span className="title-sidebar">{subtitle || siteName}</span>
   );
+  const chapter = getChapter(pathname, sidebarContents)
 
   return (
     <Layout>
       <Helmet
-        titleTemplate={['%s', subtitle, title].filter(Boolean).join(' - ')}
+        titleTemplate={['%s', chapter, subtitle, title].filter(Boolean).join(' - ')}
       >
         <link
           rel="stylesheet"

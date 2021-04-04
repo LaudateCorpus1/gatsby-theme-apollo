@@ -44,6 +44,7 @@ const NO_LAYOUT_PREFIXES = [
 ]
 
 const noLayout = (path) =>
+  !path ||
   NO_LAYOUT_PATHS.includes(path) ||
   NO_LAYOUT_PREFIXES.some((prefix) => path.startsWith(prefix))
 

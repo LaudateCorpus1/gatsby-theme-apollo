@@ -1,3 +1,4 @@
+import {isSubsection} from '../utils/helpers';
 import PropTypes from 'prop-types';
 import React, {useRef, useState} from 'react';
 import styled from '@emotion/styled';
@@ -38,10 +39,11 @@ const StyledList = styled.ul({
   listStyle: 'none'
 });
 
-const StyledListItem = styled.li({
+const StyledListItem = styled.li(props => ({
   fontSize: '1rem',
   lineHeight: 1.5,
   marginBottom: '0.8125rem',
+  paddingLeft: props.isSubsection ? '24px' : 0,
   a: {
     color: 'inherit',
     textDecoration: 'none',
@@ -53,7 +55,7 @@ const StyledListItem = styled.li({
       pointerEvents: 'none'
     }
   }
-});
+}));
 
 const Category = styled.div({
   position: 'relative',
@@ -89,14 +91,16 @@ const CategoryLink = styled(Link)(categoryTitleStyles, {
 });
 
 const Section = styled.div({
-  padding: '12px 0',
-  color: colors.text1,
+  padding: '15px 0',
+  margin: '10px 0',
+  color: colors.text2,
   // color: colors.primary,
   letterSpacing: '0.03em',
   textAlign: 'center',
   // fontWeight: 'bold',
   fontSize: 20,
   lineHeight: '15px',
+  borderBottom: `1px solid lightgray`
 })
 
 const StyledCheckbox = styled.input({
@@ -139,7 +143,7 @@ function NavItems(props) {
       {props.pages.map((page, index) => {
         const pageTitle = page.sidebarTitle || page.title;
         return (
-          <StyledListItem key={index}>
+          <StyledListItem key={index} isSubsection={isSubsection(page.path)}>
             {page.anchor ? (
               <a href={page.path} target="_blank" rel="noopener noreferrer">
                 {pageTitle}
