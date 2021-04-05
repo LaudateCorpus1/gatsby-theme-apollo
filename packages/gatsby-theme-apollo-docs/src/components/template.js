@@ -171,18 +171,21 @@ export default function Template(props) {
   const isSubsection = testIfSubsection(pathname)
   const headingDepths = isSubsection ? [3,4] : [2,3]
   // (fields.apiReference ? 4 : 3)
+  const seoProps = {
+    title: frontmatter.title,
+    description: frontmatter.description || description,
+    image: fields.image,
+  }
 
   return (
     <Fragment>
       <CustomSEO
-        title={frontmatter.title}
-        description={frontmatter.description || description}
         siteName={title}
-        image={fields.image}
         twitterHandle={twitterHandle}
+        {...seoProps}
       />
       <StyledContentWrapper>
-        <Paywall pathname={pathname} header>
+        <Paywall pathname={pathname} header {...seoProps}>
           <PageHeader {...frontmatter} />
           <hr />
         </Paywall>
