@@ -48,7 +48,6 @@ const noLayout = (path) =>
   NO_LAYOUT_PATHS.includes(path) ||
   NO_LAYOUT_PREFIXES.some((prefix) => path.startsWith(prefix))
 
-
 const PINK = '#df1797'
 // const PINK = '#e10098'
 
@@ -56,7 +55,6 @@ const theme = createMuiTheme({
   palette: { primary: { main: PINK } },
   typography: { useNextVariants: true },
 })
-  
   
 export const wrapPageElement = (
   {element, props}, // eslint-disable-line react/prop-types
@@ -70,6 +68,7 @@ export const wrapPageElement = (
     </MuiThemeProvider>
   )
   
+  console.log('PATH', props.path)
   if (noLayout(props.path)) {
     return <WithGuideCSS>{page}</WithGuideCSS>
   }

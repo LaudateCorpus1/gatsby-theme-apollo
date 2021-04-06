@@ -7,7 +7,7 @@ import {IconTwitter} from '@apollo/space-kit/icons/IconTwitter';
 import {IconYoutube} from '@apollo/space-kit/icons/IconYoutube';
 import {ReactComponent as SpectrumIcon} from '../assets/spectrum.svg';
 import {boxShadow} from './search';
-import {breakpoints, colors, smallCaps} from 'gatsby-theme-apollo-core';
+import {breakpoints, colors, smallCaps} from 'gatsby-theme-guide-core';
 import {size, transparentize} from 'polished';
 
 const Wrapper = styled.div({

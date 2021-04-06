@@ -7,7 +7,7 @@ import styled from '@emotion/styled';
 import useMount from 'react-use/lib/useMount';
 import {HEADER_HEIGHT} from '../utils';
 import {IconGithub} from '@apollo/space-kit/icons/IconGithub';
-import {PageNav, breakpoints, colors} from 'gatsby-theme-apollo-core';
+import {PageNav, breakpoints, colors} from 'gatsby-theme-guide-core';
 import {ReactComponent as SpectrumLogo} from '../assets/spectrum.svg';
 import {ReactComponent as IconEmoji} from '../assets/happy.svg';
 import {withPrefix} from 'gatsby';

@@ -1,13 +1,12 @@
 {
-  "name": "gatsby-theme-apollo-core",
+  "name": "gatsby-theme-guide-core",
   "version": "3.0.26",
   "main": "index.js",
-  "description": "A theme for bootstrapping Gatsby websites at Apollo",
-  "author": "Trevor Blades <blades@apollographql.com>",
+  "description": "A theme for The GraphQL Guide (a fork of gatsby-theme-apollo-core)",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/apollographql/gatsby-theme-apollo.git",
+    "url": "https://github.com/graphqlguide/gatsby-theme-apollo.git",
     "directory": "packages/gatsby-theme-apollo-core"
   },
   "dependencies": {

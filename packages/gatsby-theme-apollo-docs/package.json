@@ -1,22 +1,14 @@
 {
-  "name": "gatsby-theme-apollo-docs",
-  "version": "4.7.0",
+  "name": "gatsby-theme-guide",
+  "version": "4.7.3",
   "main": "index.js",
-  "description": "A Gatsby theme for building documentation websites",
-  "author": "Trevor Blades <blades@apollographql.com>",
+  "description": "A Gatsby theme for The GraphQL Guide (a fork of gatsby-theme-apollo-docs)",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/apollographql/gatsby-theme-apollo.git",
+    "url": "https://github.com/graphqlguide/gatsby-theme-apollo.git",
     "directory": "packages/gatsby-theme-apollo-docs"
   },
-  "keywords": [
-    "gatsby",
-    "gatsby-plugin",
-    "apollo",
-    "docs",
-    "theme"
-  ],
   "dependencies": {
     "@jlengstorf/get-share-image": "^0.8.0",
     "@mdx-js/mdx": "^1.1.0",
@@ -35,6 +27,7 @@
     "gatsby-remark-rewrite-relative-links": "^1.0.8",
     "gatsby-source-filesystem": "^2.11.1",
     "gatsby-source-git": "^1.0.1",
+    "gatsby-theme-guide-core": "^3.0.26",
     "gatsby-transformer-remark": "^2.6.30",
     "js-yaml": "^3.13.1",
     "prismjs": "^1.15.0",
@@ -55,8 +48,6 @@
   "peerDependencies": {
     "gatsby": "^2.13.80",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "gatsby-theme-apollo-core": "^3.0.26"
-  },
-  "gitHead": "4d272dbde806f86aa98b4d8ee901336eed6101ae"
+    "react-dom": "^16.9.0"
+  }
 }

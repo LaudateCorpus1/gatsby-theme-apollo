@@ -1,6 +1,6 @@
 const path = require('path');
 const remarkTypescript = require('remark-typescript');
-const {colors} = require('gatsby-theme-apollo-core/src/utils/colors');
+const {colors} = require('gatsby-theme-guide-core/src/utils/colors');
 const {HEADER_HEIGHT} = require('./src/utils');
 
 module.exports = ({
@@ -116,23 +116,15 @@ module.exports = ({
       }
     },
     'gatsby-remark-rewrite-relative-links',
-    {
-      resolve: 'gatsby-remark-check-links',
-      options: checkLinksOptions
-    },
-
     // {
-    //   resolve: 'gatsby-remark-link-rewrite',
-    //   options: {
-    //     pattern: /\.md/,
-    //     replace: '',
-    //   },
+    //   resolve: 'gatsby-remark-check-links',
+    //   options: checkLinksOptions
     // },
     ...gatsbyRemarkPlugins
   ];
 
   const plugins = [
-    'gatsby-theme-apollo-core',
+    'gatsby-theme-guide-core',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import React, {Fragment, createContext, useContext} from 'react';
 import rehypeReact from 'rehype-react';
 import styled from '@emotion/styled';
-import {ContentWrapper, isSubsection as testIfSubsection, colors, smallCaps} from 'gatsby-theme-apollo-core';
+import {ContentWrapper, isSubsection as testIfSubsection, colors, smallCaps} from 'gatsby-theme-guide-core';
 import {HEADER_HEIGHT} from '../utils';
 import {MDXProvider} from '@mdx-js/react';
 import {graphql, navigate} from 'gatsby';

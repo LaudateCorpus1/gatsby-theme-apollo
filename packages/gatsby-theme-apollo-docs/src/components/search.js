@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import useKey from 'react-use/lib/useKey';
 import {HEADER_HEIGHT} from '../utils';
 import {TextField} from '@apollo/space-kit/TextField';
-import {breakpoints, colors, smallCaps} from 'gatsby-theme-apollo-core';
+import {breakpoints, colors, smallCaps} from 'gatsby-theme-guide-core';
 import {css} from '@emotion/core';
 import {position, size, transparentize} from 'polished';
 

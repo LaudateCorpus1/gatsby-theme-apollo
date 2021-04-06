@@ -7,7 +7,7 @@ import remark from 'remark';
 import remark2react from 'remark-react';
 import styled from '@emotion/styled';
 import withProps from 'recompose/withProps';
-import {colors, smallCaps} from 'gatsby-theme-apollo-core';
+import {colors, smallCaps} from 'gatsby-theme-guide-core';
 import { TableWrapper, StyledTable } from './template';
 
 
