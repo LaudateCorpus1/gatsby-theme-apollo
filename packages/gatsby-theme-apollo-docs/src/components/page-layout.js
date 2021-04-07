@@ -260,7 +260,7 @@ export default function PageLayout(props) {
               />
             )}
           </HeaderInner> */}
-          <AboveNav />
+          <AboveNav onClick={handleSidebarNavLinkClick} />
           {sidebarContents && (
             <SidebarNav
               contents={sidebarContents}

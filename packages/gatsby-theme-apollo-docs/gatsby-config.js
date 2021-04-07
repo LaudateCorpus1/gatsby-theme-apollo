@@ -163,7 +163,18 @@ module.exports = ({
           path.join(baseDir, '_config.yml')
         ]
       }
-    }))
+    })),
+    // https://www.gatsbyjs.com/docs/adding-search-with-algolia/
+    // Seems like docsearch is easier, even when running it yourself:
+    // https://docsearch.algolia.com/docs/run-your-own
+    // {
+    //   resolve: `gatsby-plugin-algolia`,
+    //   options: {
+    //     appId: process.env.GATSBY_ALGOLIA_APP_ID,
+    //     apiKey: process.env.ALGOLIA_ADMIN_KEY,
+    //     queries: require("./src/utils/algolia-queries")
+    //   },
+    // }
   ];
 
   if (gaTrackingId) {

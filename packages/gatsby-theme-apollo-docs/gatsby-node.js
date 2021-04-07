@@ -55,7 +55,12 @@ async function onCreateNode(
         const categories = sidebarCategories[key];
         const trimmedSlug = slug.replace(/^\/|\/$/g, '');
         if (categories.includes(trimmedSlug)) {
-          tagline = `Chapter ${key}`;
+          const startsWithNumber = !isNaN(parseInt(key[0]))
+          if (startsWithNumber) {
+            tagline = `Chapter ${key}`;
+          } else {
+            tagline = key
+          }
           break;
         }
       }
