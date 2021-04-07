@@ -252,7 +252,9 @@ export default function PageContent(props) {
           >
             {props.children}
           </BodyContent>
-          <EditLink>{editLink}</EditLink>
+          <Paywall pathname={props.pathname} conditionalRender>
+            <EditLink>{editLink}</EditLink>
+          </Paywall>
         </Paywall>
         <PageNav
           prevPage={props.pages[pageIndex - 1]}
@@ -270,13 +272,15 @@ export default function PageContent(props) {
           />
         )}
         {props.ffWidgetId && <FeedbackLink title={props.title} />}
-        {editLink}
+        <Paywall pathname={props.pathname} conditionalRender>
+          {editLink}
+          <FurtherAsides />
+        </Paywall>
         {props.spectrumUrl && (
           <AsideLink href={props.spectrumUrl}>
             <SpectrumLogo /> Discuss on Spectrum
           </AsideLink>
         )}
-        <FurtherAsides />
       </Aside>
     </Wrapper>
   );
