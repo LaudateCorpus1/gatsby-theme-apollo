@@ -1,6 +1,5 @@
 import React from 'react';
 import { CloudinaryContext } from 'cloudinary-react'
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 
 import PageLayout from './src/components/page-layout';
 import WithGuideCSS from './src/components/with-guide-css';
@@ -34,8 +33,8 @@ export const onRenderBody = ({setPostBodyComponents, setHeadComponents}, {ffWidg
 
 const NO_LAYOUT_PATHS = [
   '/',
-  '/welcome',
-  '/tshirt'
+  '/welcome/',
+  '/tshirt/'
 ]
 
 const NO_LAYOUT_PREFIXES = [
@@ -48,28 +47,17 @@ const noLayout = (path) =>
   NO_LAYOUT_PATHS.includes(path) ||
   NO_LAYOUT_PREFIXES.some((prefix) => path.startsWith(prefix))
 
-const PINK = '#df1797'
-// const PINK = '#e10098'
-
-const theme = createMuiTheme({
-  palette: { primary: { main: PINK } },
-  typography: { useNextVariants: true },
-})
-  
 export const wrapPageElement = (
   {element, props}, // eslint-disable-line react/prop-types
   pluginOptions
 ) => {
   const page = (
-    <MuiThemeProvider theme={theme}>
-      <CloudinaryContext cloudName="graphql">
-        {element}
-      </CloudinaryContext>
-    </MuiThemeProvider>
+    <CloudinaryContext cloudName="graphql">
+      {element}
+    </CloudinaryContext>
   )
   
-  console.log('PATH', props.path)
-  if (noLayout(props.path)) {
+  if (noLayout(props.location.pathname)) {
     return <WithGuideCSS>{page}</WithGuideCSS>
   }
 

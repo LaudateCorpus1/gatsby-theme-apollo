@@ -125,6 +125,7 @@ module.exports = ({
 
   const plugins = [
     'gatsby-theme-guide-core',
+    'gatsby-theme-material-ui',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
