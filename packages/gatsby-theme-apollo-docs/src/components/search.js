@@ -154,6 +154,7 @@ export default function Search(props) {
       docsearch({
         apiKey: props.apiKey,
         indexName: props.indexName,
+        appId: '4OZJC3WQN4',
         inputSelector: '#input',
         // debug: true, // keeps the results list open
         algoliaOptions: {
