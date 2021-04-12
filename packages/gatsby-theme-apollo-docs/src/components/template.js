@@ -172,7 +172,7 @@ export default function Template(props) {
   const headingDepths = isSubsection ? [3,4] : [2,3]
   // (fields.apiReference ? 4 : 3)
   const seoProps = {
-    title: frontmatter.title,
+    title: frontmatter.title || title, 
     description: frontmatter.description || description,
     image: fields.image,
   }
