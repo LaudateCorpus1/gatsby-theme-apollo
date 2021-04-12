@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-guide",
-  "version": "4.7.10",
+  "version": "4.7.12",
   "main": "index.js",
   "description": "A Gatsby theme for The GraphQL Guide (a fork of gatsby-theme-apollo-docs)",
   "license": "MIT",
