@@ -17,7 +17,8 @@ module.exports = ({
   ignore,
   checkLinksOptions,
   gatsbyRemarkPlugins = [],
-  remarkPlugins = []
+  remarkPlugins = [],
+  baseUrl
 }) => {
   const allGatsbyRemarkPlugins = [
     {
@@ -190,7 +191,8 @@ module.exports = ({
     siteMetadata: {
       title: pageTitle || siteName,
       siteName,
-      description
+      description,
+      siteUrl: baseUrl
     },
     plugins
   };
