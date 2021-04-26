@@ -6,9 +6,13 @@
 // https://github.com/syntax-tree/unist-util-visit
 const visit = require('unist-util-visit')
 
+const isExternalLink = (url) => /https{0,1}:\/\//.test(url)
+
 module.exports = ({ markdownAST }) => {
   visit(markdownAST, 'link', (node) => {
-    node.url = node.url.replace('index.md', '').replace(/\.md/, '')
+    if (!isExternalLink(node.url)) {
+      node.url = node.url.replace('index.md', '').replace(/\.md/, '')
+     }
 
     // taken care of by gatsby-remark-rewrite-relative-links
     // .replace('../', '../../');
