@@ -59,7 +59,8 @@ const Container = styled.div({
         maxHeight: `calc(100vh - ${HEADER_HEIGHT}px - 32px)`,
         padding: 0,
         border,
-        borderRadius: 'inherit'
+        borderRadius: 'inherit',
+        overflowY: 'scroll'
       },
       '.ds-suggestions': {
         marginTop: 0
