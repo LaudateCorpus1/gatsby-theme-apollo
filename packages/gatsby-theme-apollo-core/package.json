@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-guide-core",
-  "version": "3.0.26",
+  "version": "3.0.27",
   "main": "index.js",
   "description": "A theme for The GraphQL Guide (a fork of gatsby-theme-apollo-core)",
   "license": "MIT",
