@@ -11,11 +11,18 @@ export const onRenderBody = ({setPostBodyComponents, setHeadComponents}, {ffWidg
         key="feedback"
         dangerouslySetInnerHTML={{
           __html: `
-          var ffWidgetId = '${ffWidgetId}';
-          var ffWidgetScript = document.createElement("script");
-          ffWidgetScript.type = "text/javascript";
-          ffWidgetScript.src = 'https://freddyfeedback.com/widget/freddyfeedback.js';
-          document.head.appendChild(ffWidgetScript);
+var ffWidgetId = '${ffWidgetId}';
+var ffWidgetScript = document.createElement("script");
+function loadFF() {
+  ffWidgetScript.type = "text/javascript";
+  ffWidgetScript.src = 'https://freddyfeedback.com/widget/freddyfeedback.js';
+  document.head.appendChild(ffWidgetScript);
+}
+let delay = 1000
+if (document.location.pathname === '/') {
+  delay = 10 * 1000
+} 
+setTimeout(loadFF, delay);
         `,
         }}
       />
