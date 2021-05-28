@@ -132,7 +132,7 @@ const AsideLinkInner = styled.a(({emoji}) => ({
     height: emoji ? 29.5 : 20,
     marginRight: emoji ? 1.5 : 6,
     marginLeft: emoji && -4.5,
-    marginBottom: 3,
+    // marginBottom: 3,
     stroke: 'currentColor',
     '*': {
       stroke: 'currentColor'
