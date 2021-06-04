@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-guide-core",
-  "version": "3.0.27",
+  "version": "3.0.32",
   "main": "index.js",
   "description": "A theme for The GraphQL Guide (a fork of gatsby-theme-apollo-core)",
   "license": "MIT",
@@ -20,6 +20,7 @@
     "gatsby-plugin-svgr": "^2.0.1",
     "less": "^3.10.1",
     "lodash": "^4.17.14",
+    "normalize.css": "^8.0.1",
     "polished": "^2.3.3",
     "prop-types": "^15.6.2",
     "react-helmet": "^5.2.0",
